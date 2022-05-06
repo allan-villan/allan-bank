@@ -9,6 +9,7 @@ class BankDatabase():
         try:
             conn = sqlite3.connect('bank.db')
         except Error as e:
+            logging.error("Cannot connect to database...")
             print(e)
         cur = conn.cursor()
         cur.execute("""CREATE TABLE IF NOT EXISTS customers (
@@ -24,6 +25,7 @@ class BankDatabase():
         try:
             conn = sqlite3.connect('bank.db')
         except Error as e:
+            logging.error("Cannot connect to database...")
             print(e)
         cur = conn.cursor()
         cur.execute("""CREATE TABLE IF NOT EXISTS employees (
@@ -40,11 +42,12 @@ class BankDatabase():
         try:
             conn = sqlite3.connect('bank.db')
         except Error as e:
+            logging.error("Cannot connect to database...")
             print(e)
         cur = conn.cursor()
-        # inserts first name, last name, home address, and checkings balance into customers table
-        cur.execute("INSERT INTO customers VALUES(?,?,?,?)",
-        [first_name, last_name, home_address, checkings_balance])
+        cur.execute("INSERT INTO customers VALUES(?,?,?,?)", 
+                    [first_name, last_name, home_address, checkings_balance])
+        # Uses rowid as user_id
         user_id = cur.lastrowid
         conn.commit()
         conn.close()
@@ -56,11 +59,13 @@ class BankDatabase():
         try:
             conn = sqlite3.connect('bank.db')
         except Error as e:
+            logging.error("Cannot connect to database...")
             print(e)
         cur = conn.cursor()
-        # inserts first name, last name, home address, and checkings balance into customers table
+        # Inserts first name, last name, home address, and checkings balance into customers table
         cur.execute("INSERT INTO employees VALUES(?,?,?,?,?)",
-        [first_name, last_name, home_address, role, salary])
+                    [first_name, last_name, home_address, role, salary])
+        # Uses rowid as user_id
         user_id = cur.lastrowid
         conn.commit()
         conn.close()
@@ -72,11 +77,12 @@ class BankDatabase():
         try:
             conn = sqlite3.connect('bank.db')
         except Error as e:
+            logging.error("Cannot connect to database...")
             print(e)
         cur = conn.cursor()
         # gets all available information if provided the proper login information
         cur.execute("SELECT * FROM customers WHERE first_name = '{}' AND last_name = '{}' AND rowid = '{}'"
-                              .format(first_name, last_name, user_id))
+                    .format(first_name, last_name, user_id))
         info = cur.fetchall()
         conn.commit()
         conn.close()
@@ -88,11 +94,12 @@ class BankDatabase():
         try:
             conn = sqlite3.connect('bank.db')
         except Error as e:
+            logging.error("Cannot connect to database...")
             print(e)
         cur = conn.cursor()
         # gets all available information if provided the proper login information
         cur.execute("SELECT * FROM employees WHERE first_name = '{}' AND last_name = '{}' AND rowid = '{}'"
-                              .format(first_name, last_name, user_id))
+                    .format(first_name, last_name, user_id))
         info = cur.fetchall()
         conn.commit()
         conn.close()
@@ -104,6 +111,7 @@ class BankDatabase():
         try:
             conn = sqlite3.connect('bank.db')
         except Error as e:
+            logging.error("Cannot connect to database...")
             print(e)
         cur = conn.cursor()
         cur.execute("""UPDATE customers SET checkings_balance = {}
