@@ -5,9 +5,9 @@ The checkings balance can be added to, subtracted from, and retrieved depending 
 There are extra functionalities that can be explored through main.py as well!
 
 This project was created in hopes to:
-    1) Better understand the Python programming language
-    2) Practice applying Pythonic coding and other best practices (PEP 8)
-    3) Logging the right amount of information
-    4) Practice functional programming and object oriented programming
-    
+<li>Better understand the Python programming language</li>
+<li>Practice applying Pythonic coding and other best practices (PEP 8)</li>
+<li>Logging the right amount of information</li>
+<li>Practice functional programming and object oriented programming</li>
+<br>
 A UML diagram (titled AllanBank.png) is included to better illustrate the inner workings of AllanBank.
