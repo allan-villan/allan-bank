@@ -1,12 +1,14 @@
 from database import BankDatabase
 import sqlite3
 from sqlite3 import Error
+import logging
 
 class Accounts():
     def get_checkings_balance(first_name, last_name, user_id) -> float:
         try:
             conn = sqlite3.connect('bank.db')
         except Error as e:
+            logging.error("Cannot connect to database...")
             print(e)
         cur = conn.cursor()
         cur.execute("SELECT checkings_balance FROM customers WHERE first_name = '{}' AND last_name = '{}' AND rowid = '{}'"
@@ -15,14 +17,10 @@ class Accounts():
         conn.commit()
         conn.close()
 
-        # Converts tuple into string, then a float to return balance as a float
-        balance1 = str(balance_tup).replace(",","") 
-        balance2 = str(balance1).replace("(","") 
-        balance3 = str(balance2).replace(")","")
-        balance4 = str(balance3).replace("[","")
-        balance5 = str(balance4).replace("]","")
+        # Converts tuple received from database into str to strip chacacters so we can convert to float
+        balance = str(balance_tup).strip("[(,)]")
 
-        return float(balance5)
+        return float(balance)
 
 
     def deposit_checkings(first_name, last_name, user_id):

@@ -87,6 +87,9 @@ class BankDatabase():
         conn.commit()
         conn.close()
 
+        if info == []:
+            raise Error("Account not found")
+
         return info
 
 
@@ -103,6 +106,9 @@ class BankDatabase():
         info = cur.fetchall()
         conn.commit()
         conn.close()
+
+        if info == []:
+            raise Error("Account not found")
 
         return info
 
