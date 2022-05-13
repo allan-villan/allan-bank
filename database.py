@@ -5,7 +5,7 @@ import logging
 class BankDatabase():
     logging.basicConfig(filename='logfile.log', encoding='utf-8', level=logging.DEBUG)
 
-    def create_customer_table():
+    def createCustomerTable():
         try:
             conn = sqlite3.connect('bank.db')
         except Error as e:
@@ -21,7 +21,7 @@ class BankDatabase():
         conn.close()
 
     
-    def create_employee_table():
+    def createEmployeeTable():
         try:
             conn = sqlite3.connect('bank.db')
         except Error as e:
@@ -38,7 +38,7 @@ class BankDatabase():
         conn.close()
 
 
-    def add_customer(first_name: str, last_name: str, home_address: str, checkings_balance: float) -> int:
+    def addCustomer(first_name: str, last_name: str, home_address: str, checkings_balance: float) -> int:
         try:
             conn = sqlite3.connect('bank.db')
         except Error as e:
@@ -55,7 +55,7 @@ class BankDatabase():
         return user_id
 
     
-    def add_employee(first_name: str, last_name: str, home_address: str, role: str, salary: float) -> int:
+    def addEmployee(first_name: str, last_name: str, home_address: str, role: str, salary: float) -> int:
         try:
             conn = sqlite3.connect('bank.db')
         except Error as e:
@@ -73,7 +73,7 @@ class BankDatabase():
         return user_id
 
     
-    def customer_login(first_name: str, last_name: str, user_id: int):
+    def customerLogin(first_name: str, last_name: str, user_id: int):
         try:
             conn = sqlite3.connect('bank.db')
         except Error as e:
@@ -93,7 +93,7 @@ class BankDatabase():
         return info
 
 
-    def employee_login(first_name: str, last_name: str, user_id: int):
+    def employeeLogin(first_name: str, last_name: str, user_id: int):
         try:
             conn = sqlite3.connect('bank.db')
         except Error as e:
@@ -113,7 +113,7 @@ class BankDatabase():
         return info
 
 
-    def update_checkings(first_name: str, last_name: str, user_id: int, checkings_balance: float):
+    def updateCheckings(first_name: str, last_name: str, user_id: int, checkings_balance: float):
         try:
             conn = sqlite3.connect('bank.db')
         except Error as e:
