@@ -11,3 +11,5 @@ This project was created in hopes to:
 <li>Practice functional programming and object oriented programming</li>
 <br>
 A UML diagram (titled AllanBank.png) is included to better illustrate the inner workings of AllanBank.
+
+![image](https://user-images.githubusercontent.com/84660320/185974593-c9a80f04-142b-4c6b-9235-80cea669d8ce.png)
